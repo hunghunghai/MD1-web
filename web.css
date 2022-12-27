@@ -5,3 +5,12 @@ body{
 background-position: center;
     background-attachment:fixed;
 }
+.colorText{
+    color: #000000;
+}
+.error{
+    color: red;
+}
+a{
+    text-decoration: none
+}
