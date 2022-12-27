@@ -98,7 +98,10 @@ function sumBitDate() {
         localStorage.setItem('userList', JSON.stringify(arr))
     }
 }
-
+function logOut() {
+    localStorage.removeItem('userList')
+    location.href = 'index.html'
+}
 
 
 

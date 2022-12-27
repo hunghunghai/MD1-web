@@ -8,15 +8,22 @@
     <meta charset="UTF-8">
     <title>Dior Official</title>
     <link rel="stylesheet" href="web.css">
+
 </head>
 <body>
 <!--phần này là thanh công cụ-->
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand"><h1>Genuine product</h1></a>
-        <form class="d-flex">
-            <button class="btn btn-outline-success" type="submit"><a href="login.html">Login</a></button>
-        </form>
+       <script>
+           let users = JSON.parse(localStorage.getItem('userList'))
+           if (users == null){
+               document.write('<button class="btn btn-outline-success" type="submit"><a href="login.html">Login</a></button>')
+           }else {
+               document.write(`<span style="margin-left: 65%">${users.username}</span>
+<button class="btn btn-outline-success" type="submit" onclick="logOut()">LogUot</button>`)
+           }
+       </script>
     </div>
 </nav>
 <!--phần này là giao diện chính-->
@@ -506,12 +513,16 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
+
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <p>Toàn bộ các sản phẩm trên chỉ mang tính cất minh họa</p>
         © 2022 Copyright By : Nguyễn Phi Hùng
         <a class="text-white" href="https://facebook.com/Nph.Dtmh/">facebook.com</a>
     </div>
     <!-- Copyright -->
 </footer>
+<!--phàn này là đăng xuất-->
+<script src="loginsigup.js"></script>
 <!--phần link js bootstrap 5-->
 <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
