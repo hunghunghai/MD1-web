@@ -34,7 +34,7 @@ let raPasswordInput = document.querySelector('#RePasswordinput')
 let create = document.querySelector('.createaccount')
 let ischeck;
 let user;
-let arr = JSON.parse(localStorage.getItem('userList'))
+let arr = JSON.parse(localStorage.getItem('user_List'))
 if (arr==null) {
     arr = [];
 }
@@ -86,7 +86,7 @@ function validate() {
     }
     if (check){
         ischeck = true;
-        user = new User(username,email,password)
+        user = new User("username","email","password")
     }else {
         ischeck = false;
     }
@@ -95,7 +95,7 @@ function validate() {
 function sumBitDate() {
     if (ischeck){
         arr.push(user)
-        localStorage.setItem('userList', JSON.stringify(arr))
+        localStorage.setItem("user_List", JSON.stringify(arr))
     }
 }
 function logOut() {
