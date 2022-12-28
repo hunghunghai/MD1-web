@@ -100,7 +100,7 @@ function sumBitDate() {
 }
 function logOut() {
     localStorage.removeItem('userList')
-    location.href = 'index.html'
+    location.href = 'homee.html'
 }
 
 
@@ -123,7 +123,7 @@ function logOut() {
 //             }
 //         }
 //         if (check){
-//             location.href = '.index.html'
+//             location.href = '.homee.html'
 //         }else {
 //             document.querySelector('#Error').innerText = 'Wrong account or password !!'
 //         }

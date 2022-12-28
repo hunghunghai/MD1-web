@@ -1,408 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+<link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <head>
-    <!--    phần link css bootstrap 5-->
-    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <meta charset="UTF-8">
-    <title>Dior Official</title>
+    <title>Login DiorOfficial</title>
     <link rel="stylesheet" href="web.css">
-
 </head>
 <body>
-<!--phần này là thanh công cụ-->
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand"><h1>Genuine product</h1></a>
-       <script>
-           let users = JSON.parse(localStorage.getItem('userList'))
-           if (users == null){
-               document.write('<button class="btn btn-outline-success" type="submit"><a href="login.html">Login</a></button>')
-           }else {
-               document.write(`<span style="margin-left: 65%">${users.username}</span>
-<button class="btn btn-outline-success" type="submit" onclick="logOut()">LogUot</button>`)
-           }
-       </script>
-    </div>
-</nav>
-<!--phần này là giao diện chính-->
-<hr >
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/M962_COUTURE_ANIM_MITZAH_23_P05G_Palette_fond_rouge_SW_F39_1_1_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-5"></p>
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" id="inputUser" class="form-control form-control-lg"/>
+                                <label class="form-label">User Name</label>
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="inputPassword" class="form-control form-control-lg"/>
+                                <label class="form-label">Password</label>
+                            </div>
+                            <p id="Error" class="error"></p>
+                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                            <button onclick="LoginWeb()" class="btn btn-outline-light btn-lg px-5" type="button">Login
+                            </button>
+                            <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="mb-0">Don't have an account? <a href="HTML/sigin.html" class="text-white-50 fw-bold">Sign
+                                Up</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/mitzah-collection-2022-3_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/mitzah-collection-2022-4_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/mitzah-collection-2022-7_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/mitzah-collection-2022-8_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="mypham/mitzah-collection-2022-10_700x.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Make-Up</h5>
-                    <p></p>
-                    <p></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <a href=""><img src="trangsuc/JRCO95001_0000_U.webp" class="img-fluid rounded-start" alt="..."></a>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>SMALL ROSE DIOR COUTURE NECKLACE
-                        Pink Gold and Diamonds
-                        Reference: JRCO95001_0000</p>
-                    <p>67.620.000đ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="trangsuc/JRCO95003_0000_57.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>SMALL ROSE DIOR COUTURE RING
-                        Pink Gold and Diamonds
-                        Reference: JRCO95003_0000</p>
-                    <p>67.620.00dđ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="trangsuc/JRCO95005_0000_U.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>SMALL ROSE DIOR COUTURE EARRINGS
-                        Pink Gold and Diamonds
-                        Reference: JRCO95002_0000</p>
-                    <p>89.180.000đ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="trangsuc/JRDV94115_0000_U.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>ROSE DES VENTS BRACELET
-                        Yellow Gold, Diamonds and Mother-of-Pearl
-                        Reference: JRDV94117_0000</p>
-                    <p>280.000.000đ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="trangsuc/JRDV94116_0000_U.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>ROSE DES VENTS NECKLACE
-                        Yellow,Diamonds and Mother-of-Pearl
-                        Reference: JRDV94116_0000</p>
-                    <p>295.000.000đ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="trangsuc/JRDV94117_0000_U.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Dior Jewels</h5>
-                    <p>ROSE DES VENTS BRACELET
-                        Yellow, Diamonds and Semi-Precious Stones
-                        Reference: JRDV94115_0000</p>
-                    <p>600.000.000đ</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/1d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR-DIOR</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/2d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR-DIOR</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/3d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR-DIOR</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="display: flex; gap: 10px; padding-left: 5px">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/6d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR Bags</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/7d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR Bags</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="d/8d.webp" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">DIOR Bags</h5>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
+</section>
+<script>
+    let arr = JSON.parse(localStorage.getItem('userList'))
 
-</div>
-<!--phần này là phần chuyển trang-->
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="trang2.html">2</a></li>
-        <li class="page-item"><a class="page-link" href="trang3.html">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>
-<!--phần này là phần kết thúc của trang web-->
-<footer class="bg-light text-center text-white">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-            <!-- Facebook -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #3b5998;"
-                    href=" #!"
-                    role="button"
-            ><i class="bi bi-facebook"></i></a>
+    if (arr == null) {
+        arr = [];
+    }
 
-            <!-- Twitter -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #55acee;"
-                    href="#!"
-                    role="button"
-            ><i class="bi bi-twitter"></i></a>
+    function LoginWeb() {
+        let check = false
+        let username = document.querySelector('#inputUser').value;
+        let password = document.querySelector('#inputPassword').value;
+        if (username.trim() == "" && password.trim() == "") {
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i].username == username && arr[i].password == password)
+                if (arr[i].username == username && arr[i].password == password) {
+                    localStorage.setItem('userList', JSON.stringify(arr[i]))
+                    check = true;
+                    break;
+                }
+            }
+            if (check) {
+                location.href = 'index.html'
+            } else {
+                document.querySelector('#Error').innerText = 'Wrong account or password !!'
+            }
+        }
+    }
+</script>
 
-            <!-- Google -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #dd4b39;"
-                    href="#!"
-                    role="button"
-            ><i class="bi bi-google"></i></a>
-
-            <!-- Instagram -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #ac2bac;"
-                    href="#!"
-                    role="button"
-            ><i class="bi bi-instagram"></i></a>
-
-            <!-- Linkedin -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #0082ca;"
-                    href="#!"
-                    role="button"
-            ><i class="bi bi-linkedin"></i></a>
-            <!-- Github -->
-            <a
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #333333;"
-                    href="#!"
-                    role="button"
-            ><i class="bi bi-github"></i></a>
-        </section>
-        <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        <p>Toàn bộ các sản phẩm trên chỉ mang tính cất minh họa</p>
-        © 2022 Copyright By : Nguyễn Phi Hùng
-        <a class="text-white" href="https://facebook.com/Nph.Dtmh/">facebook.com</a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!--phàn này là đăng xuất-->
-<script src="loginsigup.js"></script>
-<!--phần link js bootstrap 5-->
 <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<!--<script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"-->
-<!--        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"-->
-<!--        crossorigin="anonymous"></script>-->
-<!--<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"-->
-<!--        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"-->
-<!--        crossorigin="anonymous"></script>-->
+<script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
 </html>
