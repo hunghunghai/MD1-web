@@ -20,6 +20,23 @@
   </div>
 </nav>
 <!--phần này là giao diện chính-->
+<script>
+  let listProduct= JSON.parse(localStorage.getItem("listProduct"))
+  function showListProduct(){
+    let drawTable = '';
+    for (let i = 0; i < listProduct.length; i++) {
+      drawTable += `<div class="col-6 col-md-3 product-list">
+                    <div class="card-body-img">
+                        <img src="${listProduct[i].image}" class="img-fluide" alt="...">
+                    </div>
+                    <h5 class="card-title">${listProduct[i].nameProduct}</h5>
+                    <p class="card-text">${listProduct[i].price}</p>
+                    <p class="card-text"><small class="text-muted">đã bán 10k</small></p>
+                </div>`
+    }
+    document.querySelector("#product").innerHTML = drawTable
+  }showListProduct()
+</script>
 <div class="card-group" style="gap: 50px; padding: 20px 300px">
   <div class="card">
     <img src="image/Fashion/13f.webp" class="card-img-top" alt="...">

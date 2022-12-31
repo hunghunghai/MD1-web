@@ -2,26 +2,33 @@ class User {
     username;
     email;
     password;
+
     constructor(username, email, password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
+
     setUsername(username) {
         this.username = username;
     }
+
     getUsername() {
         return this.username;
     }
+
     setEmail(email) {
         this.email = email;
     }
+
     getEmail() {
         return this.email;
     }
+
     setPassword(password) {
         this.password = password;
     }
+
     getPassword() {
         return this.password;
     }
@@ -31,13 +38,18 @@ let userNameInput = document.querySelector('#userName')
 let emailInput = document.querySelector('#inputEmail')
 let passwordInput = document.querySelector('#Passwordinput')
 let raPasswordInput = document.querySelector('#RePasswordinput')
+let newPassword = document.querySelector('#inputNewPassword')
+let confirmPassword = document.querySelector('#inputConfirmPassword')
 let create = document.querySelector('.createaccount')
 let ischeck;
 let user;
+let passNew;
 let arr = JSON.parse(localStorage.getItem('user_List'))
-if (arr==null) {
+if (arr == null) {
     arr = [];
+
 }
+
 function validate() {
     let check = true;
     let username = userNameInput.value;
@@ -84,49 +96,45 @@ function validate() {
     } else {
         document.querySelector('#repassInputX').innerText = ''
     }
-    if (check){
+    if (check) {
         ischeck = true;
-        user = new User("username","email","password")
-    }else {
+        user = new User(username, email, password)
+    } else {
         ischeck = false;
     }
 }
 
 function sumBitDate() {
-    if (ischeck){
+    if (ischeck) {
         arr.push(user)
-        localStorage.setItem("user_List", JSON.stringify(arr))
+        localStorage.setItem('user_List', JSON.stringify(arr))
     }
 }
+
+function LoginWeb() {
+    let check = false
+    let username = document.querySelector('#inputUser').value;
+    let password = document.querySelector('#inputPassword').value;
+    if (username.trim() == "" && password.trim() == "") {
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].username == username && arr[i].password == password) {
+                localStorage.setItem('userList', JSON.stringify(arr[i]))
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            location.href = 'homee.html'
+        } else {
+            document.querySelector('#Error').innerText = 'Wrong account or password !!'
+        }
+    }
+}
+
 function logOut() {
     localStorage.removeItem('userList')
-    location.href = 'homee.html'
+    location.href = 'index.html'
 }
 
 
-
-
-
-// let arr = JSON.parse(localStorage.getItem('listUser'))
-//
-// function Login() {
-//     let check = false
-//     let username = document.querySelector('#inputUser').value;
-//     let password = document.querySelector('#inputPassword').value;
-//     if (username.trim()==''&&password.trim()==''){
-//
-//     }else {
-//         for (let i = 0; i < arr.length; i++) {
-//             if (arr[i].username==username && arr[1].password==password){
-//                 check = true;
-//                 break;
-//             }
-//         }
-//         if (check){
-//             location.href = '.homee.html'
-//         }else {
-//             document.querySelector('#Error').innerText = 'Wrong account or password !!'
-//         }
-//     }
-//
-// }
