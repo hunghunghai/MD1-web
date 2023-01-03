@@ -102,12 +102,14 @@ function validate() {
     } else {
         ischeck = false;
     }
+
 }
 
 function sumBitDate() {
     if (ischeck) {
         arr.push(user)
         localStorage.setItem('user_List', JSON.stringify(arr))
+        location.href = "index.html"
     }
 }
 
