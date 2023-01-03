@@ -1,16 +1,15 @@
-
 //BE SURE TO PROTECT EVERYTHING IN THE CONFIG
 //DON'T COMMIT IT!!!
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyBVIisJdm7DA7m0MgNh8xYfULYBuzFrno8",
-    authDomain: "chinhcom-19dc0.firebaseapp.com",
-    projectId: "chinhcom-19dc0",
-    storageBucket: "chinhcom-19dc0.appspot.com",
-    messagingSenderId: "815454985437",
-    appId: "1:815454985437:web:ab0f26e0c7e80a42510f34",
-    measurementId: "G-13PNQT7620"
+    apiKey: "AIzaSyCI5fwlThlNsG-swAd9qAVyY9GwmMNayBA",
+    authDomain: "hunghunghai.firebaseapp.com",
+    projectId: "hunghunghai",
+    storageBucket: "hunghunghai.appspot.com",
+    messagingSenderId: "52546298835",
+    appId: "1:52546298835:web:9b75459c4ff4cfcf2e0526",
+    measurementId: "G-0JWXPXZM5Y"
 };
 firebase.initializeApp(firebaseConfig);
 var image = '';
@@ -79,11 +78,11 @@ fileButton.addEventListener('change', function (e) {
             var downloadURL = uploadTask.snapshot.downloadURL;
             image = downloadURL;
             console.log('downloadURL ===>', image);
-            let divLocation = document.getElementById("imgDiv");
+            // let divLocation = document.getElementById("imgDiv");
             let imgElement = document.createElement("img");
             imgElement.src = downloadURL
             console.log('pic ==', image)
-            divLocation.append(imgElement);
+            // divLocation.append(imgElement);
         });
 
 });
