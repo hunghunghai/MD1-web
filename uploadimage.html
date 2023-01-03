@@ -1,21 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <meta charset="UTF-8">
     <title>Title</title>
   <script src="upload_file/upload.js"></script>
+    <link rel="stylesheet" href="product-manage/product.css">
+    <link rel="stylesheet" href="web.css">
 </head>
 <body>
-<div class="container">
-  <div class="row" id="draw-product">
-    <!--        <div class="col">-->
-    <!--            <img src="../image/Nami.webp" alt="">-->
-    <!--        </div>-->
-    <!--        <div class="col">-->
-    <!--            <img src="../image/Robin.jpg" alt="">-->
-    <!--        </div>-->
 
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand"><h1>Dior-Bags</h1></a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+        <div class="row flex-con" id="draw-product">
   </div>
 </div>
+<nav aria-label="Page navigation example" style="margin-top: 15px">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="homee.html">1</a></li>
+        <li class="page-item"><a class="page-link" href="trang2.html">2</a></li>
+        <li class="page-item"><a class="page-link" href="trang3.html">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+<footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #3b5998;"
+                    href=" #!"
+                    role="button"
+            ><i class="bi bi-facebook"></i></a>
+
+            <!-- Twitter -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #55acee;"
+                    href="#!"
+                    role="button"
+            ><i class="bi bi-twitter"></i></a>
+
+            <!-- Google -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #dd4b39;"
+                    href="#!"
+                    role="button"
+            ><i class="bi bi-google"></i></a>
+
+            <!-- Instagram -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #ac2bac;"
+                    href="#!"
+                    role="button"
+            ><i class="bi bi-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #0082ca;"
+                    href="#!"
+                    role="button"
+            ><i class="bi bi-linkedin"></i></a>
+            <!-- Github -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #333333;"
+                    href="#!"
+                    role="button"
+            ><i class="bi bi-github"></i></a>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <p>Toàn bộ các sản phẩm trên chỉ mang tính cất minh họa</p>
+        © 2022 Copyright By : Nguyễn Phi Hùng
+        <a class="text-white" href="https://facebook.com/Nph.Dtmh/">facebook.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+    <script>
+        let listProduct = JSON.parse(localStorage.getItem('list_product'))
+        if (listProduct==null){
+            listProduct=[]
+        }
+        function showListProduct() {
+            let drawProduct = '';
+            for (let i = 0; i < listProduct.length; i++) {
+                drawProduct += `
+                <div class="card">
+                   <img src="${listProduct[i].image}" class="card-img-top" alt="...">
+                   <div class="card-body">
+                      <h5 class="card-title">${listProduct[i].name}</h5>
+                      <p class="card-text">${listProduct[i].price},99đ</p>
+                    </div>
+                </div>
+            `
+            }
+            document.getElementById('draw-product').innerHTML = drawProduct;
+        }
+        showListProduct()
+    </script>
 </body>
+<script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
 </html>

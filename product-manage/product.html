@@ -9,6 +9,7 @@
     <title>Title</title>
     <script src="../model/Product.js"></script>
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="../web.css">
 
 </head>
 <body>
@@ -71,14 +72,18 @@
             <div id="imgDiv"></div>
             <!--      END UPLOAD-->
             <button class="btn btn-success" onclick="createProduct()">Create Product</button>
+            <button class="btn btn-dark"><a href="../uploadimage.html">Kiểm Tra</a></button>
         </div>
     </div>
 </div>
 <!--SHOW LIST PRODUCT-->
-<div class="container">
-    <div class="row" id="draw-product">
+
+    <div class="container">
+        <div class="row flex-con" id="draw-product">
+        </div>
     </div>
 </div>
+
 <script>
     let idUser = parseInt(localStorage.getItem('idKey'));
     let listProduct = JSON.parse(localStorage.getItem('list_product'))
@@ -92,11 +97,11 @@
         let image = getImage();
         let id = 0;
         if (listProduct.length === 0) {
-            id = 1;
+
         } else {
             id = listProduct[listProduct.length - 1].id + 1;
         }
-        let product = new Product(id, name, price, image, idUser);
+        let product = new Product(id, name, price, image);
         listProduct.push(product);
         localStorage.removeItem('list_product')
         localStorage.setItem('list_product', JSON.stringify(listProduct))
@@ -107,25 +112,19 @@
         let drawProduct = '';
         for (let i = 0; i < listProduct.length; i++) {
             drawProduct += `
-            <div>
-                <div class="card mb-3" style="max-width: 80%;">
-                     <div class="row g-0">
-                            <div class="col-md-4" style="">
-                                <a href="profileImage/1.html"><img src="${listProduct[i].image}" class="img-fluid rounded-start" alt="..."></a>
-                            </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">${listProduct[i].name}</h5>
-                                <p class="card-text"><small class="text-muted">${listProduct[i].price}đ</small></p>
-                            </div>
-                            <div style="margin-left: 82%; margin-top: 55px">
+<div class="card">
+                <div class="">
+                   <img src="${listProduct[i].image}" class="card-img-top" alt="...">
+                   <div class="card-body">
+                      <h5 class="card-title">${listProduct[i].name}</h5>
+                      <p class="card-text">${listProduct[i].price}</p>
+                    </div>
+                </div>
+                            <div >
                                 <button type="button" class="btn btn-dark"  onclick="showUpdateModal(${listProduct[i].id})" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pen"></i></button>
                                 <button class="btn btn-dark" onclick="deletes()"><i class="bi bi-trash3-fill"></i></button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
             `
         }
         document.getElementById('draw-product').innerHTML = drawProduct;
@@ -167,8 +166,8 @@
         showListProduct()
     }
 
-    function deletes(i) {
-        listProduct.splice(i, 1)
+    function deletes(id) {
+        listProduct.splice(id, 1)
         localStorage.removeItem("list_product")
         localStorage.setItem("list_product", JSON.stringify(listProduct))
         showListProduct()
