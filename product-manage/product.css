@@ -12,8 +12,11 @@ img {
     flex-flow: row wrap;
 }
 
-.flex-con > div{
+.flex-con > div {
     width: 240px;
     margin: 10px;
     line-height: 40px;
+}
+.th{
+    border: 1px solid;
 }
