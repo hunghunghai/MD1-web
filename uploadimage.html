@@ -192,16 +192,27 @@
         for (let i = 0; i < listCart.length; i++) {
             drawBags += `
             <tr style="text-align: center">
-                        <th>${listCart[i].name}</th>
-                        <th>${listCart[i].price}</th>
-                        <th>${listCart[i].quantity}</th>
-                        <th style="width: 50px"></th>
+                        <th class="th">${listCart[i].name}</th>
+                        <th class="th">${listCart[i].price}</th>
+                        <th class="th">${listCart[i].quantity}</th>
+                        <th class="th" onclick="deleteBags(${listCart[i].id})" style="width: 50px"><button class="btn btn-dark"><i class="bi bi-trash-fill"></i></button></th>
                     </tr>
             `
         }
         document.getElementById('bags_listBags').innerHTML = drawBags;
     }
     showListBags()
+    let idDelete = 0
+    function deleteBags(id) {
+        idDelete = id;
+        for (let i = 0; i < listCart.length; i++) {
+            if (listCart[i].id==idDelete)
+                listCart.splice(i, 1)
+        }
+        localStorage.removeItem("list-cart")
+        localStorage.setItem("list-cart", JSON.stringify(listCart))
+        showListBags()
+    }
 </script>
 </body>
 <script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
